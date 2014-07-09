@@ -19,3 +19,15 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/OF-extension"]
+	path = bundle/OF-extension
+	url = https://github.com/shor-ty/vimExtensionOF.git
+[submodule "bundle/xoria256"]
+	path = bundle/xoria256
+	url = https://github.com/vim-scripts/xoria256.vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/YCM"]
+	path = bundle/YCM
+	url = https://github.com/Valloric/YouCompleteMe.git
