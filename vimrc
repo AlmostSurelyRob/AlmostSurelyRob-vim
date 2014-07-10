@@ -2,7 +2,7 @@ call pathogen#infect()
 "This causes the local vimrc files to be used
 set exrc
 "Turn on line numbering
-set relativenumber number
+set relativenumber
 
 " Highlight search terms
 "set hlsearch
@@ -89,8 +89,6 @@ nnoremap <F9> :!make<CR>
 
 "CtrlP Config
 map <C-t> :CtrlPBuffer<CR>
-"map <leader>f :CtrlP<CR>
-"let g:ctrlp_map = '<leader>f'
 set wildignore+=
       \*/.git/*,*/.hg/*,*/.svn/*,
       \*/*.wav,*/*.mp4,*/*.mp3,*/*.MP3,*/*.wma,*/*.ogg,
