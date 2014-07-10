@@ -2,7 +2,7 @@ call pathogen#infect()
 "This causes the local vimrc files to be used
 set exrc
 "Turn on line numbering
-set relativenumber
+set relativenumber number
 
 " Highlight search terms
 "set hlsearch
@@ -39,7 +39,7 @@ map gt :bnext<CR>
 "Whitespace config
 set expandtab
 autocmd FileType tex,cmake setlocal sts=2 sw=2 ts=2
-autocmd FileType cpp setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+autocmd FileType cpp,openfoam,python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
 
 set nospell nowrap
 
