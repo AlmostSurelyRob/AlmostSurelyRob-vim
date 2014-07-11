@@ -138,7 +138,7 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:$,trail:␣
 
 "auto-pairs config
-let g:AutoPairsShortcutToggle = '<F5>'
+"let g:AutoPairsShortcutToggle = '<F0>'
 
 "Little function that swaps the spelllang between pl and en_gb
 function! SwapSpelling ( )
