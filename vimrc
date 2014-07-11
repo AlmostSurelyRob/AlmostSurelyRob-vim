@@ -131,6 +131,9 @@ autocmd BufNewFile * :PowerlineReloadColorscheme
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:$,trail:␣
 
+"auto-pairs config
+let g:AutoPairsShortcutToggle = '<F5>'
+
 "Little function that swaps the spelllang between pl and en_gb
 function SwapSpelling ( )
         if &spelllang == 'pl'
@@ -139,3 +142,4 @@ function SwapSpelling ( )
                 set spelllang=pl
         endif
 endfunction
+
