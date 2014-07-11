@@ -2,7 +2,7 @@ call pathogen#infect()
 "This causes the local vimrc files to be used
 set exrc
 "Turn on line numbering
-set relativenumber number
+set relativenumber
 
 " Highlight search terms
 "set hlsearch
@@ -38,8 +38,10 @@ map gt :bnext<CR>
 "
 "Whitespace config
 set expandtab
-autocmd FileType tex,cmake setlocal sts=2 sw=2 ts=2
-autocmd FileType cpp,openfoam,python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+if has("autocmd")
+  autocmd FileType tex,cmake setlocal sts=2 sw=2 ts=2
+  autocmd FileType cpp,openfoam,python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+endif
 
 set nospell nowrap
 
@@ -56,11 +58,17 @@ set t_Co=256
 "colorscheme molokai
 colorscheme xoria256
 
+"Automatic vim sourcing
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+nmap <leader>v :tabedit $MYVIMRC<CR>
 
 "TIP: if you write your labels as label{fig:something, then you may press
 "Ctrl+n and you will automatically scroll.
 set iskeyword+=
 
+"Mutt config
 augroup MUTT
   au BufRead ~/.mutt/temp/mutt* set spell " <-- vim 7 required
   au BufRead ~/.mutt/temp/mutt* nmap  <F1>  gqap
@@ -89,8 +97,6 @@ nnoremap <F9> :!make<CR>
 
 "CtrlP Config
 map <C-t> :CtrlPBuffer<CR>
-"map <leader>f :CtrlP<CR>
-"let g:ctrlp_map = '<leader>f'
 set wildignore+=
       \*/.git/*,*/.hg/*,*/.svn/*,
       \*/*.wav,*/*.mp4,*/*.mp3,*/*.MP3,*/*.wma,*/*.ogg,
@@ -105,7 +111,7 @@ let g:ctrlp_max_depth = 5
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
 
-
+"YCM config
 let g:ycm_filetype_whitelist = { 'cpp' : 1 }
 let g:ycm_filetype_blacklist = {
 	\ 'vim' : 1,
@@ -135,7 +141,7 @@ set listchars=tab:▸\ ,eol:$,trail:␣
 let g:AutoPairsShortcutToggle = '<F5>'
 
 "Little function that swaps the spelllang between pl and en_gb
-function SwapSpelling ( )
+function! SwapSpelling ( )
         if &spelllang == 'pl'
                 set spelllang=en_gb
         else

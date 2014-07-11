@@ -1,8 +1,8 @@
 # My vim config
 
 Features
-* Pathogen
-* YCM - requires compilation of clang completer
+* Pathogen for plugin management
+* YCM - requires compilation of clang completer and python2 compatibility
 
 ## Installation
 
@@ -13,7 +13,8 @@ Features
 git submodule update --init --recursive
 ```
 
-Update the submodules with
+### Update the submodules
+If you don't want to review the changes of plugins just do
 ```
 git submodule foreach git pull origin
 ```
