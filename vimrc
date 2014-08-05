@@ -149,3 +149,5 @@ function! SwapSpelling ( )
         endif
 endfunction
 
+let g:pad_dir='~/Dropbox/notes'
+let g:syntastic_python_checkers = ['flake8-python2']
