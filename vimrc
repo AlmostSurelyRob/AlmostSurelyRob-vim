@@ -40,7 +40,8 @@ map gt :bnext<CR>
 set expandtab
 if has("autocmd")
   autocmd FileType tex,cmake setlocal sts=2 sw=2 ts=2
-  autocmd FileType cpp,openfoam,python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+  autocmd FileType cpp,python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+  autocmd FileType openfoam setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e commentstring="//%s"
 endif
 
 set nospell nowrap
