@@ -40,8 +40,9 @@ map gt :bnext<CR>
 set expandtab
 if has("autocmd")
   autocmd FileType tex,cmake setlocal sts=2 sw=2 ts=2
-  autocmd FileType cpp,python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
-  autocmd FileType openfoam setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e commentstring="//%s"
+  autocmd FileType cpp setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+  autocmd FileType python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e commentstring="# %s" 
+  autocmd FileType openfoam setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e commentstring="//%s" color desert
 endif
 
 set nospell nowrap
@@ -107,7 +108,7 @@ set wildignore+=
       \*/*.tar.gz,*/*.tgz,*/*.tar.bz,
       \*/*.doc,*/*.docx,*/*.xls,*/*.xlsx,*/*.ods,*/*.odt,*/*.ppt,*/*.pptx,
       \*/*.pdf
-let g:ctrlp_max_files = 5000
+let g:ctrlp_max_files = 5001
 let g:ctrlp_max_depth = 5
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
@@ -129,10 +130,12 @@ command! LoadIPython source ~/.vim/bundle/vim-ipython/ftplugin/python/ipy.vim | 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 "Powerline config
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set nocompatible 
-set laststatus=2 
+set laststatus=2
 set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
+"set guifont=Inconsolata
+let g:Powerline_symbols = 'unicode'
 autocmd BufNewFile * :PowerlineReloadColorscheme
 
 nmap <leader>l :set list!<CR>
@@ -151,4 +154,5 @@ function! SwapSpelling ( )
 endfunction
 
 let g:pad_dir='~/Dropbox/notes'
-let g:syntastic_python_checkers = ['flake8-python2']
+let g:syntastic_python_checkers = ['flake8']
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
