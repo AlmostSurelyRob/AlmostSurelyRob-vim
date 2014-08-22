@@ -123,7 +123,7 @@ let g:ycm_confirm_extra_conf = 0
 "IPython hacks
 "
 "Command for connecting to running kernel 
-command LoadIPython source ~/.vim/bundle/vim-ipython/ftplugin/python/ipy.vim | IPython
+command! LoadIPython source ~/.vim/bundle/vim-ipython/ftplugin/python/ipy.vim | IPython
 
 "Some GIT config
 autocmd Filetype gitcommit setlocal spell textwidth=72
