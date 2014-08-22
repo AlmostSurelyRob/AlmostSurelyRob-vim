@@ -30,4 +30,4 @@
 	url = https://github.com/jiangmiao/auto-pairs.git
 [submodule "bundle/vim-latex"]
 	path = bundle/vim-latex
-	url = https://github.com/jcf/vim-latex.git
+	url = git://git.code.sf.net/p/vim-latex/vim-latex
