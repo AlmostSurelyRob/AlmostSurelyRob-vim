@@ -2,7 +2,7 @@ call pathogen#infect()
 "This causes the local vimrc files to be used
 set exrc
 "Turn on line numbering
-set relativenumber
+set relativenumber number
 
 " Highlight search terms
 "set hlsearch
@@ -100,7 +100,6 @@ nnoremap <F9> :!make<CR>
 "CtrlP Config
 map <C-t> :CtrlPBuffer<CR>
 set wildignore+=
-      \*/.git/*,*/.hg/*,*/.svn/*,
       \*/*.wav,*/*.mp4,*/*.mp3,*/*.MP3,*/*.wma,*/*.ogg,
       \*/*.avi,*/*.flv,
       \*/*.iso,
@@ -108,10 +107,15 @@ set wildignore+=
       \*/*.tar.gz,*/*.tgz,*/*.tar.bz,
       \*/*.doc,*/*.docx,*/*.xls,*/*.xlsx,*/*.ods,*/*.odt,*/*.ppt,*/*.pptx,
       \*/*.pdf
+
 let g:ctrlp_max_files = 5001
 let g:ctrlp_max_depth = 5
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = {
+        \ 'dir': '\v[\/]\.(git|hg|svn)$',
+        \ 'file': '\v\.(exe|so|dll)$',
+        \ }
 
 "YCM config
 let g:ycm_filetype_whitelist = { 'cpp' : 1 }
