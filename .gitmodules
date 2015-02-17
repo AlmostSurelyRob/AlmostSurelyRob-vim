@@ -25,6 +25,3 @@
 [submodule "bundle/auto-pairs"]
 	path = bundle/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
-[submodule "bundle/vim-latex"]
-	path = bundle/vim-latex
-	url = git://git.code.sf.net/p/vim-latex/vim-latex
