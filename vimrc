@@ -40,7 +40,7 @@ map gt :bnext<CR>
 set expandtab
 if has("autocmd")
   autocmd FileType tex,cmake setlocal sts=2 sw=2 ts=2
-  autocmd FileType cpp setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e
+  autocmd FileType cpp setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e, formatprg=clang-format\ 2>\ /dev/null
   autocmd FileType python setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e commentstring="# %s" 
   autocmd FileType openfoam setlocal sts=4 sw=4 ts=4 cino=>4,N-s,+4,(0,U1,W4,m1,l1,g1,h1,i4 cinkeys=0{,0},0(,0),:,!^F,o,O,e commentstring="//%s" color desert
 endif
@@ -85,6 +85,8 @@ augroup END
 
 " NERTree Setup
 map <F2> :NERDTreeToggle<CR>
+map <leader>a :call AutoPairsToggle()!<CR>
+
 map <F3> :set wrap!<CR>
 
 map <C-F12> :!ctags -R --exclude=lnInclude --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
@@ -134,13 +136,14 @@ command! LoadIPython source ~/.vim/bundle/vim-ipython/ftplugin/python/ipy.vim | 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 "Powerline config
+let g:powerline_loaded=1
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set nocompatible 
 set laststatus=2
 set encoding=utf-8
 "set guifont=Inconsolata
 let g:Powerline_symbols = 'unicode'
-autocmd BufNewFile * :PowerlineReloadColorscheme
+"autocmd BufNewFile * :PowerlineReloadColorscheme
 
 nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:$,trail:␣
@@ -160,3 +163,7 @@ endfunction
 let g:pad_dir='~/Dropbox/notes'
 let g:syntastic_python_checkers = ['flake8']
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+let g:pyclewn_python="/usr/bin/python2"
+map <C-I> :pyf ~/bin/clang-format.py<cr>
+
